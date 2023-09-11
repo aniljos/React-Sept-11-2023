@@ -32,6 +32,18 @@
         // <div><h4>This is a JSX Element</h4></div>
         ReactDOM.createRoot(document.getElementById("app3"))
                                             .render(<div><h4>This is a JSX Element</h4></div>);
+
+        //Component - function, class
+        function MyComponent(){
+            //return the view(jsx)
+            return (
+                <div>
+                    <h4>React Component</h4>
+                    <p>This is a simple demo</p>
+                </div>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById("app4")).render(<MyComponent/>);
     </script>
 </body>
 </html>
