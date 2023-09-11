@@ -11,24 +11,23 @@ var add = function (x, y) {
 console.log("add", add(2, 3));
 // foo(add); // function bar() { return add;}
 //arrow function
-var calc = function (x, y) {
+var calc = (x, y) => {
     return x + y;
 };
 console.log("calc", calc(2, 3));
-calc = function (x, y) { return x * y; };
+calc = (x, y) => x * y;
 console.log("calc", calc(2, 3));
-var squareIt = function (x) { return x * x; };
+var squareIt = x => x * x;
 console.log("squareIt", squareIt(33));
-var user1 = {
+const user1 = {
     id: 100,
     print: function () {
-        var _this = this;
         console.log("Id: ", this.id);
         setTimeout(function () {
             console.log("Id after 2secs: ", this.id);
         }, 2000);
-        setTimeout(function () {
-            console.log("Id after 2secs arrowfn: ", _this.id);
+        setTimeout(() => {
+            console.log("Id after 2secs arrowfn: ", this.id);
         }, 2000);
     }
 };

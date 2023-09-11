@@ -18,4 +18,4 @@ obj = { id: 1, name: "Anil" };
 obj.location = "";
 var user = { id: 1, location: "Mumbai" };
 //user = {id: 1}; //static type checking
-var sum = function (x, y) { return x + y; };
+var sum = (x, y) => x + y;

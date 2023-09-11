@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
 
-        "target": "ES5",
+        "target": "ES6",
         "outDir": "build",
-        "noEmitOnError": true
+        "noEmitOnError": false,
+        
     }
 }
