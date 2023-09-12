@@ -1,15 +1,16 @@
-class Car {
+var Car = /** @class */ (function () {
     //only one construtor implementation
-    constructor(name, gears, speed) {
+    function Car(name, gears, speed) {
         this.name = name;
         this.speed = speed;
         this.gears = gears;
         this.createdDate = new Date();
     }
-    decrementSpeed(value) {
+    Car.prototype.decrementSpeed = function (value) {
         this.speed -= value;
-    }
-}
+    };
+    return Car;
+}());
 var car = new Car();
 car.name = "BMW";
 car.gears = 7;

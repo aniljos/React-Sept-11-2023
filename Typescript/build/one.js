@@ -1,11 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.version = exports.calcMultiply = exports.calcAdd = void 0;
 console.log("in one.ts");
 //named export
-export function calcAdd(x, y) {
+function calcAdd(x, y) {
     console.log("in calcAdd of one.ts");
     return x + y;
 }
-export function calcMultiply(x, y) {
+exports.calcAdd = calcAdd;
+function calcMultiply(x, y) {
     console.log("in calcMultiply of one.ts");
     return x * y;
 }
-export const version = "1.0.0";
+exports.calcMultiply = calcMultiply;
+exports.version = "1.0.0";

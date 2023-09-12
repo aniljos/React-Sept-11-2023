@@ -43,7 +43,7 @@ const user1 = {
         }, 2000);
 
         setTimeout(()=> {
-            console.log("Id after 2secs arrowfn: ", this.id);
+            console.log("Id after 2secs arrowfn: ", this);
         }, 2000);
     }
 }

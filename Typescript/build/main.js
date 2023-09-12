@@ -1,10 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 //deafult import
-import processFromTwo from './two.js';
+var two_js_1 = require("./two.js");
 console.log("in main.ts");
-const process = () => {
+var process = function () {
     console.log("process in main.ts");
 };
 //invoking main.ts
 process();
 //invoking two.ts
-processFromTwo.process();
+two_js_1.default.process();
