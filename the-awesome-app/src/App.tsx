@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Hello from './components/Hello';
 import Counter from './components/Counter';
+import FnCounter from './components/FnCounter';
 
 function App() {
   return (
@@ -25,8 +26,11 @@ function App() {
       <main>
         {/* <Hello message="Hello React"/>
         <Hello message="Welcome to a React Application"/> */}
-        <Counter initValue={5}/>
-        <Counter initValue={10}/>
+        {/* <Counter initValue={5}/>
+        <Counter initValue={10}/> */}
+
+      {/* <Counter initValue={10}/> */}
+        <FnCounter initValue={10}/>
       </main>
     </div>
   );
