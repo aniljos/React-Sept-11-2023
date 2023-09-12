@@ -4,6 +4,7 @@ import './App.css';
 import Hello from './components/Hello';
 import Counter from './components/Counter';
 import FnCounter from './components/FnCounter';
+import ListProducts from './components/ListProducts';
 
 function App() {
   return (
@@ -30,7 +31,9 @@ function App() {
         <Counter initValue={10}/> */}
 
       {/* <Counter initValue={10}/> */}
-        <FnCounter initValue={10}/>
+        {/* <FnCounter initValue={10}/> */}
+
+        <ListProducts/>
       </main>
     </div>
   );
