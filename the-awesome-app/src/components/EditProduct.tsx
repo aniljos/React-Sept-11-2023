@@ -29,6 +29,7 @@ function EditProduct(){
 
     function handleChangeName(evt: ChangeEvent<HTMLInputElement>){
         const value = evt.target.value;
+        
         const copy = {...product}; // spread operator
         copy.name = value;
         setProduct(copy);
