@@ -5,36 +5,36 @@ import Hello from './components/Hello';
 import Counter from './components/Counter';
 import FnCounter from './components/FnCounter';
 import ListProducts from './components/ListProducts';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      {/* bg-dark navbar-dark */}
+      {/* <nav className="navbar navbar-expand-lg bg-body-tertiary"> */}
+      <nav className="navbar bg-dark navbar-dark">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">React Training</a>
 
-      <main>
-        {/* <Hello message="Hello React"/>
-        <Hello message="Welcome to a React Application"/> */}
-        {/* <Counter initValue={5}/>
-        <Counter initValue={10}/> */}
-
-      {/* <Counter initValue={10}/> */}
-        {/* <FnCounter initValue={10}/> */}
-
-        <ListProducts/>
-      </main>
+          <ul className="nav">
+            <li className="nav-item">
+              <a className="nav-link" href="#">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Counter</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">FnCounter</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link">Products</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   );
 }
