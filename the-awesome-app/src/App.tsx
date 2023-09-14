@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Hello from './components/Hello';
@@ -12,14 +12,33 @@ import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import GadgetStore from './components/GadgetStore';
 import ViewCart from './components/ViewCart';
+import { AppThemeContext } from './context/AppThemeContext';
 
 function App() {
+
+  const themeContext = useContext(AppThemeContext);
+
+  const mode = themeContext.mode;
+  const dispatch = themeContext.dispatch;
+
+  function switchTheme(){
+
+    
+    if(mode === "dark"){
+      dispatch!({type: "SET_LIGHT"});
+    }
+    else{
+      dispatch!({type: "SET_DARK"});
+    }
+  }
+  
+
   return (
     <Router>
       <div className='container'>
         {/* bg-dark navbar-dark */}
         {/* <nav className="navbar navbar-expand-lg bg-body-tertiary"> */}
-        <nav className="navbar bg-dark navbar-dark">
+        <nav className={`navbar bg-${mode} navbar-${mode}`}>
           <div className="container-fluid">
             <a className="navbar-brand" href="#">React Training</a>
 
@@ -44,6 +63,9 @@ function App() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/viewcart">View Cart</Link>
+              </li>
+              <li className="nav-item">
+                <button className='btn btn-warning' onClick={switchTheme}>Switch Theme</button>
               </li>
             </ul>
           </div>
