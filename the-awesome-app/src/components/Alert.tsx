@@ -1,10 +1,19 @@
+import React from "react";
+
 type AlertProps = {
     message: string;
     severity?: string; //info, warning, success, error
     onClose?: () => void
 }
 
-function Alert(props: AlertProps){
+
+//React.memo ==> 16.3 , optimization, creates a memoized copy of the component
+// It will regenerate(memo) when the props or state change
+
+
+const Alert = React.memo((props: AlertProps) => {
+
+    console.log("Alert rendered");
 
     let severity = "info";
     if(props.severity){
@@ -32,6 +41,6 @@ function Alert(props: AlertProps){
             </button>
         </div>
     )
-}
+})
 
 export default Alert;

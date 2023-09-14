@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import EditProduct from './components/EditProduct';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
+import GadgetStore from './components/GadgetStore';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to="/login">Login</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/gadgets">Gadget Store</Link>
+              </li>
             </ul>
           </div>
         </nav>
@@ -52,6 +56,7 @@ function App() {
               
               <Route path='/products/:id' element={<EditProduct/>} />
               <Route path='/login' element={<Login/>} />
+              <Route path='/gadgets' element={<GadgetStore/>} />
           </Routes>
         </main>
       </div>
