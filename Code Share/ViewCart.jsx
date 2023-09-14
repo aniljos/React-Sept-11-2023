@@ -1,26 +1,25 @@
-import React, {JSX} from 'react';
-import { CartItem } from './model/CartItem';
+import React from 'react';
 
-function ViewCart(): JSX.Element {
+function ViewCart() {
 
-    const cart: CartItem[] = [];
+    const cart = [];
 
 
-    function remove(item: CartItem) {
+    function remove(item) {
 
     }
     return (
         <div>
-            <h3>Gadgets Cart</h3>
+            <h3>Cart</h3>
 
             <div className="row row-cols-1 row-cols-md-2 g-4">
                 {cart.map((item, index) => {
                     return (
                         <div className="col" key={index}>
                             <div className="card bg-light mb-3 border-success">
-                                <p className="card-header">{item.product?.name}</p>
+                                <p className="card-header">{item.product.name}</p>
                                 <div className="card-body">
-                                    <p className="card-text">{item.product?.description}</p>
+                                    <p className="card-text">{item.product.description}</p>
                                     <p className="card-text">Quantity: {item.quantity}</p>
                                 </div>
                                 <div className="card-footer">
