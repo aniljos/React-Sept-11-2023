@@ -9,6 +9,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import EditProduct from './components/EditProduct';
 import Login from './components/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -47,7 +48,8 @@ function App() {
               <Route path='/' element={<Hello message='Hello React'/>} />
               <Route path='/counter' element={<Counter initValue={5}/>} />
               <Route path='/fncounter' element={<FnCounter initValue={10}/>} />
-              <Route path='/products' element={<ListProducts/>} />
+              <Route path='/products' element={<ProtectedRoute> <ListProducts/> </ProtectedRoute>} />
+              
               <Route path='/products/:id' element={<EditProduct/>} />
               <Route path='/login' element={<Login/>} />
           </Routes>
