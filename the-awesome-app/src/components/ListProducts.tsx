@@ -3,12 +3,15 @@ import axios from 'axios';
 import {Product} from '../model/Product';
 import './ListProducts.css';
 import {useNavigate} from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { AuthState } from "../redux/authReducer";
 
 
 function ListProducts(){
 
     const [products, setProducts] = useState<Array<Product>>([]);
     const navigate = useNavigate();
+    const auth = useSelector((state: any)=> state.auth) as AuthState;
 
     useEffect(() => {
         fetchProducts();
@@ -16,10 +19,12 @@ function ListProducts(){
 
     async function fetchProducts(){
 
-        const url = "http://localhost:9000/products";
+        const url = "" + process.env.REACT_APP_BASE_PRODUCTS_URL;
         //async and await
         try {
-            const response = await axios.get<Product[]>(url);
+            const accessToken = auth.accessToken;
+            const headers = {Authorization: `Bearer ${accessToken}`};
+            const response = await axios.get<Product[]>(url, {headers});
             console.log("success", response);
             setProducts(response.data);
 
@@ -47,7 +52,7 @@ function ListProducts(){
 
         try {
             
-            const url = "http://localhost:9000/products/" + product.id;
+            const url = "" + process.env.REACT_APP_BASE_PRODUCTS_URL + "/" +  product.id;
             await axios.delete(url);
             fetchProducts();
             alert("deleted product");

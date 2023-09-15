@@ -13,6 +13,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 import GadgetStore from './components/GadgetStore';
 import ViewCart from './components/ViewCart';
 import { AppThemeContext } from './context/AppThemeContext';
+import RxjsGadgetStore from './components/RxjsGadgetStore';
+import RxjsViewCart from './components/RxjsViewCart';
 
 function App() {
 
@@ -65,6 +67,12 @@ function App() {
                 <Link className="nav-link" to="/viewcart">View Cart</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/rxjsgadgets">Rxjs Store</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/rxjsviewcart">Rxjs Cart</Link>
+              </li>
+              <li className="nav-item">
                 <button className='btn btn-warning' onClick={switchTheme}>Switch Theme</button>
               </li>
             </ul>
@@ -84,6 +92,9 @@ function App() {
               <Route path='/login' element={<Login/>} />
               <Route path='/gadgets' element={<GadgetStore/>} />
               <Route path='/viewcart' element={<ViewCart/>} />
+
+              <Route path='/rxjsgadgets' element={<RxjsGadgetStore/>} />
+              <Route path='/rxjsviewcart' element={<RxjsViewCart/>} />
           </Routes>
         </main>
       </div>

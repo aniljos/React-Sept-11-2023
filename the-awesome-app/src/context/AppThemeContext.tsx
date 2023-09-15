@@ -35,6 +35,11 @@ const reducer = (currentState: ThemeState, action: any)=>{
 
 export function AppThemeProvider(props: any){
 
+    //destructring(ES6)
+    // const arr = useReducer(reducer, initState);
+    // const state1 = arr[0]
+    // const disp = arr[1];
+
     const [state, dispatch] = useReducer(reducer, initState);
 
     return (
