@@ -45,7 +45,7 @@ function App() {
 
 
   return (
-    <Router>
+    <Router basename='/react/'>
       <div className='container'>
         {/* bg-dark navbar-dark */}
         {/* <nav className="navbar navbar-expand-lg bg-body-tertiary"> */}
