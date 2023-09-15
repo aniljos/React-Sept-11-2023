@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { Suspense, useContext } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Hello from './components/Hello';
@@ -10,11 +10,20 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import EditProduct from './components/EditProduct';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
-import GadgetStore from './components/GadgetStore';
+
 import ViewCart from './components/ViewCart';
 import { AppThemeContext } from './context/AppThemeContext';
 import RxjsGadgetStore from './components/RxjsGadgetStore';
 import RxjsViewCart from './components/RxjsViewCart';
+import HelloWithError from './components/HelloWithError';
+import AppErrorBoundary from './components/AppErrorBoundary';
+import ListCustomers from './components/ListCustomers';
+
+//static import
+//import GadgetStore from './components/GadgetStore';
+
+//dynamic import 
+const GadgetStore = React.lazy(() => import('./components/GadgetStore'));
 
 function App() {
 
@@ -23,17 +32,17 @@ function App() {
   const mode = themeContext.mode;
   const dispatch = themeContext.dispatch;
 
-  function switchTheme(){
+  function switchTheme() {
 
-    
-    if(mode === "dark"){
-      dispatch!({type: "SET_LIGHT"});
+
+    if (mode === "dark") {
+      dispatch!({ type: "SET_LIGHT" });
     }
-    else{
-      dispatch!({type: "SET_DARK"});
+    else {
+      dispatch!({ type: "SET_DARK" });
     }
   }
-  
+
 
   return (
     <Router>
@@ -73,6 +82,12 @@ function App() {
                 <Link className="nav-link" to="/rxjsviewcart">Rxjs Cart</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/errorb">Error Boundary</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/customers">Customers</Link>
+              </li>
+              <li className="nav-item">
                 <button className='btn btn-warning' onClick={switchTheme}>Switch Theme</button>
               </li>
             </ul>
@@ -81,21 +96,26 @@ function App() {
 
         <main>
           {/* Views */}
+          <AppErrorBoundary>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Routes>
+                <Route path='/' element={<Hello message='Hello React' />} />
+                <Route path='/counter' element={<Counter initValue={5} />} />
+                <Route path='/fncounter' element={<FnCounter initValue={10} />} />
+                <Route path='/products' element={<ProtectedRoute> <ListProducts /> </ProtectedRoute>} />
 
-          <Routes>
-              <Route path='/' element={<Hello message='Hello React'/>} />
-              <Route path='/counter' element={<Counter initValue={5}/>} />
-              <Route path='/fncounter' element={<FnCounter initValue={10}/>} />
-              <Route path='/products' element={<ProtectedRoute> <ListProducts/> </ProtectedRoute>} />
-              
-              <Route path='/products/:id' element={<EditProduct/>} />
-              <Route path='/login' element={<Login/>} />
-              <Route path='/gadgets' element={<GadgetStore/>} />
-              <Route path='/viewcart' element={<ViewCart/>} />
+                <Route path='/products/:id' element={<EditProduct />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/gadgets' element={<GadgetStore />} />
+                <Route path='/viewcart' element={<ViewCart />} />
 
-              <Route path='/rxjsgadgets' element={<RxjsGadgetStore/>} />
-              <Route path='/rxjsviewcart' element={<RxjsViewCart/>} />
-          </Routes>
+                <Route path='/rxjsgadgets' element={<RxjsGadgetStore />} />
+                <Route path='/rxjsviewcart' element={<RxjsViewCart />} />
+                <Route path='/errorb' element={<HelloWithError message="" />} />
+                <Route path='/customers' element={<ListCustomers/>} />
+              </Routes>
+            </Suspense>
+          </AppErrorBoundary>
         </main>
       </div>
     </Router>

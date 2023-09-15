@@ -15,16 +15,18 @@ function ListProducts(){
 
     useEffect(() => {
         fetchProducts();
+       
     },[])
-
+   
     async function fetchProducts(){
 
         const url = "" + process.env.REACT_APP_BASE_PRODUCTS_URL;
         //async and await
         try {
-            const accessToken = auth.accessToken;
-            const headers = {Authorization: `Bearer ${accessToken}`};
-            const response = await axios.get<Product[]>(url, {headers});
+            // const accessToken = auth.accessToken;
+            // const headers = {Authorization: `Bearer ${accessToken}`};
+           // const response = await axios.get<Product[]>(url, {headers});
+           const response = await axios.get<Product[]>(url);
             console.log("success", response);
             setProducts(response.data);
 
