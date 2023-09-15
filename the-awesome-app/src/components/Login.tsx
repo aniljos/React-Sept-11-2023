@@ -19,18 +19,18 @@ function Login(){
 
             <div className="form-group">
                 <label>User Name</label>
-                <input className="form-control" value={userName} 
+                <input id="username" className="form-control" value={userName} 
                                     onChange={e => setUserName(e.target.value)}/>
             </div>
 
             <div className="form-group">
                 <label>Password</label>
-                <input type="password" className="form-control" 
+                <input id="password" type="password" className="form-control" 
                                             value={password} onChange={e => setPassword(e.target.value)}/>
             </div>
             <br/>
             <div>
-                <button className="btn btn-success" onClick={login}>Login</button>
+                <button id="loginbtn" className="btn btn-success" onClick={login}>Login</button>
             </div>
         </div>
     )

@@ -76,7 +76,7 @@ function ListProducts(){
                 {products.map((item: Product) => {
 
                     return (
-                        <div key={item.id} className="product">
+                        <div key={item.id} className="product" data-testid="product">
                             <p>Id: {item.id}</p>
                             <p>{item.name}</p>
                             <p>{item.description}</p>
